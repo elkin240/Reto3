@@ -25,7 +25,11 @@ public class Cloud implements Serializable {
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cloud")
     @JsonIgnoreProperties({"cloud","client"})
-    private List<Message> mesagges;
+    private List<Message> messages;
+    
+     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cloud")
+    @JsonIgnoreProperties({"cloud","client"})
+    private List<Reservation> reservation;
 
     public Integer getId() {
         return id;
@@ -74,6 +78,29 @@ public class Cloud implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
+    }
+
+   
+
+   
+  
 
 
 }
