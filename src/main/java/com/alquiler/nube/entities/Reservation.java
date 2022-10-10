@@ -19,12 +19,12 @@ public class Reservation implements Serializable {
            
     @ManyToOne
     @JoinColumn(name = "cloud")
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties("reservations")
     private Cloud cloud;
     
     @ManyToOne
     @JoinColumn(name = "client")
-    @JsonIgnoreProperties({"reservation","messages"})
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
     
     private String score;
