@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/Admin")
 public class AdminController {
-
+// commit admin
     @Autowired
     private com.alquiler.nube.service.AdminService AdminService;
 
