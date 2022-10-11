@@ -24,5 +24,6 @@ public class AdminRepository {
     }
     public void delete(Admin r){
         adminCrudRepository.delete(r);
+        //esta clase ya se agrego
     }
 }

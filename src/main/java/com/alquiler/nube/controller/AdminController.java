@@ -23,6 +23,6 @@ public class AdminController {
     @ResponseStatus(HttpStatus.CREATED)
     public Admin save(@RequestBody  Admin p){
         return AdminService.save(p);
-
+//esta clase ya se agrego
     }
 }
