@@ -14,50 +14,73 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public List<Category> getAll(){
+    public List<Category> getAll() {
         return categoryRepository.getAll();
     }
-    public Optional<Category> getProduct(int id){
+
+    public Optional<Category> getProduct(int id) {
         return categoryRepository.getCategory(id);
     }
-    public Category save(Category p){
-        if(p.getId()==null){
+
+    public Category save(Category p) {
+        if (p.getId() == null) {
             return categoryRepository.save(p);
-        }else{
+        } else {
             Optional<Category> e = categoryRepository.getCategory(p.getId());
-            if(e.isPresent()){
+            if (e.isPresent()) {
                 return p;
-            }else{
+            } else {
                 return categoryRepository.save(p);
             }
         }
     }
-    public Category update(Category p){
-        if(p.getId()!=null){
-            Optional<Category> q = categoryRepository.getCategory(p.getId());
+
+//    public Category update(Category category) {
+//        if (category.getId() != null) {
+//            Optional<Category> q = categoryRepository.getCategory(category.getId());
+//            if (!q.isEmpty()) {
+//              if(category.getDescription()!=null){
+//                    q.get().setDescription(category.getDescription());
+//                }  
+//              
+//              if(category.getName()!=null){
+//                    q.get().setName(category.getName());
+//                }
+//              return categoryRepository.save(q.get());
+//            }
+//        }
+//        return category;
+//    }
+//        
+
+    public Category update(Category category){
+        if(category.getId()!=null){
+            Optional<Category> q = categoryRepository.getCategory(category.getId());
             if(q.isPresent()){
-                if(p.getName()!=null){
-                    q.get().setName(p.getName());
+                if(category.getName()!=null){
+                    q.get().setName(category.getName());
+                }
+                if(category.getDescription()!=null){
+                    q.get().setDescription(category.getDescription());
                 }
                 categoryRepository.save(q.get());
                 return q.get();
             }else{
-                return p;
+                return category;
             }
         }else{
-            return p;
+            return category;
         }
     }
-    public boolean delete(int id){
-        boolean flag=false;
-        Optional<Category>p= categoryRepository.getCategory(id);
-        if(p.isPresent()){
+    public boolean delete(int id) {
+        boolean flag = false;
+        Optional<Category> p = categoryRepository.getCategory(id);
+        if (p.isPresent()) {
             categoryRepository.delete(p.get());
-            flag=true;
+            flag = true;
         }
         return flag;
 
     }
-
 
 }

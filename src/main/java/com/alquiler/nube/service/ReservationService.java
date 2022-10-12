@@ -37,12 +37,7 @@ public class ReservationService {
         if(p.getIdReservation()!=null){
             Optional<Reservation> q = reservationRepository.getReservation(p.getIdReservation());
             if(q.isPresent()){
-//                if(p.getClients()!=null){
-//                    q.get().setClients(p.getClients());
-//                }
-                if(p.getCloud()!=null){
-                    q.get().setCloud(p.getCloud());
-                }
+
                 if(p.getDevolutionDate()!=null){
                     q.get().setDevolutionDate(p.getDevolutionDate());
                 }

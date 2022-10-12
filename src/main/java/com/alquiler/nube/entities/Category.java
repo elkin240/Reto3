@@ -52,8 +52,7 @@ public class Category implements Serializable {
         this.clouds = clouds;
     }
 
-   
-
-   
-
+    
+    
+    
 }

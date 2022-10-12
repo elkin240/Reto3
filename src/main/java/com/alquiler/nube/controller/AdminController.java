@@ -13,16 +13,30 @@ import java.util.List;
 public class AdminController {
 
     @Autowired
-    private com.alquiler.nube.service.AdminService AdminService;
+    private com.alquiler.nube.service.AdminService adminService;
 
     @GetMapping("/all")
-    public List<Admin> getAll(){
-        return AdminService.getAll();
+    public List<Admin> getAll() {
+        return adminService.getAll();
     }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Admin save(@RequestBody  Admin p){
-        return AdminService.save(p);
+    public Admin save(@RequestBody Admin p) {
+        return adminService.save(p);
 //esta clase ya se agrego
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Admin update(@RequestBody Admin a) {
+        return adminService.update(a);
+
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {
+        return adminService.delete(id);
     }
 }

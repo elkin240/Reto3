@@ -24,4 +24,15 @@ public class MessageController {
     public Message save(@RequestBody  Message M){
         return messageService.save(M);
     }
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Message update(@RequestBody  Message M){
+        return messageService.update(M);
+    }
+    
+     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id")int id ){
+        return messageService.delete(id);
+    }
 }
