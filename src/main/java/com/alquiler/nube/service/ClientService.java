@@ -44,6 +44,10 @@ public class ClientService {
                 if(p.getPassword()!=null){
                     q.get().setPassword(p.getPassword());
                 }
+                
+                if(p.getAge()!=null){
+                    q.get().setAge(p.getAge());
+                }
                 clientRepository.save(q.get());
                 return q.get();
             }else{
