@@ -1,9 +1,13 @@
 package com.alquiler.nube.repository;
 
+import com.alquiler.nube.entities.Client;
+import com.alquiler.nube.entities.ClientReport;
 import com.alquiler.nube.entities.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import com.alquiler.nube.repository.crudRepository.ReservationCrudRepository;
@@ -23,8 +27,6 @@ public class ReservationRepository {
     public Reservation save(Reservation r){
         return reservationCrudRepository.save(r);
     }
-    public void delete(Reservation r){
-        reservationCrudRepository.delete(r);
-    }
+    public void delete(Reservation r){reservationCrudRepository.delete(r);}
 
 }

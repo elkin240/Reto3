@@ -21,7 +21,7 @@ public class Cloud implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "category")
-    @JsonIgnoreProperties("clouds")
+    @JsonIgnoreProperties("cloud")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cloud")
@@ -95,11 +95,5 @@ public class Cloud implements Serializable {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-
-      
-
-   
-  
-
 
 }
