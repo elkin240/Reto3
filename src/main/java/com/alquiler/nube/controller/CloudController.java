@@ -10,14 +10,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Cloud")
-public class CloudController {
+public class        CloudController {
 
     @Autowired
     private CloudService cloudService;
 
     @GetMapping("/all")
-    public List<Cloud> getAll() {
-        return cloudService.getAll();
+    public List<Cloud> getAll() {return cloudService.getAll();
     }
 
     @PostMapping("/save")
