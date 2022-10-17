@@ -10,7 +10,9 @@ function traerDatosCat(){
             alert("Error de peticion!");
     }
     });
-}function pintarDatos(datos){
+}
+
+function pintarDatos(datos){
     let html="";
     html +="<tr>";
     object.keys(datos[0]).forEach(elemento =>{
