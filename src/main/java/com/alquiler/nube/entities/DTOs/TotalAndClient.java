@@ -1,8 +1,16 @@
-package com.alquiler.nube.entities;
+package com.alquiler.nube.entities.DTOs;
 
-public class ClientReport {
+import com.alquiler.nube.entities.Client;
+
+public class TotalAndClient {
+
     private long total;
     private Client client;
+
+    public TotalAndClient(long total, Client client) {
+        this.total = total;
+        this.client = client;
+    }
 
     public long getTotal() {
         return total;

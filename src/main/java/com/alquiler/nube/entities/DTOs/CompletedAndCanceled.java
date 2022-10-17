@@ -1,9 +1,14 @@
-package com.alquiler.nube.entities;
+package com.alquiler.nube.entities.DTOs;
 
-public class ReservationReport {
+public class CompletedAndCanceled {
 
     private Integer completed;
     private Integer cancelled;
+
+    public CompletedAndCanceled(Integer completed, Integer cancelled) {
+        this.completed = completed;
+        this.cancelled = cancelled;
+    }
 
     public Integer getCompleted() {
         return completed;
