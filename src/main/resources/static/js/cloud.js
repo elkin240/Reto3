@@ -1,10 +1,10 @@
-function traerAdmin(){
+function traerCloud(){
     $.ajax({
-        url:"http://localhost:8080/api/Admin/all",
+        url:"http://localhost:8080/api/Cloud/all",
         type:"GET",
         dataType:'json',
         success: function(respuesta, xhr){
-            pintarAdmins(respuesta);
+            pintarClouds(respuesta);
         },
         error:function (respuesta,xhr){
             alert("Error de peticion!");
@@ -12,12 +12,15 @@ function traerAdmin(){
     });
 }
 
-function pintarAdmins(datos){
+function pintarClouds(datos){
  let html = "";
   html += "<thead>";
   html +="<tr>"
   html +="<th>Nombre</th>"
-  html +="<th>Correo</th>"
+  html +="<th>Marca</th>"
+  html +="<th> A&ntilde;o</th>"
+  html +="<th>Descripcion</th>"
+  html +="<th>Eliminar</th>"
    html +="</tr>"
   html += "</thead>";
 
@@ -26,17 +29,20 @@ function pintarAdmins(datos){
     html += "<tr>"
 
     html += "<td>"+dato.name+"</td>";
-    html += "<td>"+dato.email+"</td";
-    html += "<td><button  class='btn btn-danger' onclick='eliminarAdmin("+dato.idAdmin+")'>Eliminar </button> </td";
+    html += "<td>"+dato.brand+"</td>";
+    html += "<td>"+dato.year+"</td>";
+    html += "<td>"+dato.description+"</td>";
+  
+    html += "<td><button  class='btn btn-danger' onclick='eliminarCloud("+dato.id+")'>Eliminar </button> </td";
     html += "</tr>"
 
   }
   
 
-  $("#tablaAdmins").html(html);
+  $("#tablaClouds").html(html);
 }
 
-function guardarAdmin(){
+function guardarCloud(){
     let datos={
             name:$("#name").val(),
             email:$("#email").val(),
@@ -45,7 +51,7 @@ function guardarAdmin(){
     let dataToSend=JSON.stringify(datos);
    
     $.ajax({
-        url:"http://localhost:8080/api/Admin/save",
+        url:"http://localhost:8080/api/Cloud/save",
         type:"POST",
         dataType: 'json',
         contentType : 'application/json',
@@ -54,7 +60,7 @@ function guardarAdmin(){
             $("#name").val(""),
             $("#email").val(""),
             $("#password").val(""),
-            traerAdmin();
+            traerCloud();
         },
         error:function (respuesta,xhr){
             alert("Error de peticion!");
@@ -64,12 +70,12 @@ function guardarAdmin(){
 }
 
 
-function eliminarAdmin(idAdmin){
+function eliminarCloud(id){
     $.ajax({
-        url:"http://localhost:8080/api/Admin/"+idAdmin,
+        url:"http://localhost:8080/api/Cloud/"+id,
         type:"DELETE",
         success: function(respuesta){
-          traerAdmin();
+          traerCloud();
         },
         error:function (respuesta,xhr){
             alert("Error de peticion!");

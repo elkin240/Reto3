@@ -18,6 +18,7 @@ function pintarAdmins(datos){
   html +="<tr>"
   html +="<th>Nombre</th>"
   html +="<th>Correo</th>"
+  html +="<th>Eliminar</th>"
    html +="</tr>"
   html += "</thead>";
 
@@ -26,8 +27,8 @@ function pintarAdmins(datos){
     html += "<tr>"
 
     html += "<td>"+dato.name+"</td>";
-    html += "<td>"+dato.email+"</td";
-    html += "<td><button  class='btn btn-danger' onclick='eliminarAdmin("+dato.idAdmin+")'>Eliminar </button> </td";
+    html += "<td>"+dato.email+"</td>";
+   html += "<td><button  class='btn btn-danger' onclick='eliminarAdmin("+dato.idAdmin+")'>Eliminar </button> </td";
     html += "</tr>"
 
   }
