@@ -1,10 +1,10 @@
-function traerCloud(){
+function traerClient(){
     $.ajax({
-        url:"http://localhost:8080/api/Cloud/all",
+        url:"http://localhost:8080/api/Client/all",
         type:"GET",
         dataType:'json',
         success: function(respuesta, xhr){
-            pintarClouds(respuesta);
+            pintarClients(respuesta);
         },
         error:function (respuesta,xhr){
             alert("Error de peticion!");
@@ -12,16 +12,15 @@ function traerCloud(){
     });
 }
 
-function pintarClouds(datos){
+function pintarClients(datos){
  let html = "";
   html += "<thead>";
   html +="<tr>"
   html +="<th>Nombre</th>"
-  html +="<th>Marca</th>"
-  html +="<th> A&ntilde;o</th>"
-  html +="<th>Descripcion</th>"
+  html +="<th>Email</th>"
+  html +="<th>Edad</th>"
   html +="<th>Eliminar</th>"
-   html +="</tr>"
+    html +="</tr>"
   html += "</thead>";
 
   html += "<tbody>"
@@ -29,40 +28,39 @@ function pintarClouds(datos){
     html += "<tr>"
 
     html += "<td>"+dato.name+"</td>";
-    html += "<td>"+dato.brand+"</td>";
-    html += "<td>"+dato.year+"</td>";
-    html += "<td>"+dato.description+"</td>";
-  
-    html += "<td><button  class='btn btn-danger' onclick='eliminarCloud("+dato.id+")'>Eliminar </button> </td";
+    html += "<td>"+dato.email+"</td>";
+    html += "<td>"+dato.age+"</td>";
+     
+    html += "<td><button  class='btn btn-danger' onclick='eliminarClient("+dato.idClient+")'>Eliminar </button> </td";
     html += "</tr>"
 
   }
   
 
-  $("#tablaClouds").html(html);
+  $("#tablaClients").html(html);
 }
 
-function guardarCloud(){
+function guardarClient(){
     let datos={
             name:$("#name").val(),
-            brand:$("#brand").val(),
-            year:$("#years").val(),   
-            description:$("#description").val(),
+            email:$("#email").val(),
+            password:$("#password").val(),
+            age:$("#age").val()
         };
     let dataToSend=JSON.stringify(datos);
    
     $.ajax({
-        url:"http://localhost:8080/api/Cloud/save",
+        url:"http://localhost:8080/api/Client/save",
         type:"POST",
         dataType: 'json',
         contentType : 'application/json',
         data: dataToSend,
         success: function(respuesta){
             $("#name").val(""),
-            $("#brand").val(""),
-            $("#years").val(""),
-            $("#description").val(""),
-            traerCloud();
+            $("#email").val(""),
+            $("#password").val(""),
+            $("#age").val(""),
+            traerClient();
         },
         error:function (respuesta,xhr){
             alert("Error de peticion!");
@@ -72,12 +70,12 @@ function guardarCloud(){
 }
 
 
-function eliminarCloud(id){
+function eliminarClient(idClient){
     $.ajax({
-        url:"http://localhost:8080/api/Cloud/"+id,
+        url:"http://localhost:8080/api/Client/"+idClient,
         type:"DELETE",
         success: function(respuesta){
-          traerCloud();
+          traerClient();
         },
         error:function (respuesta,xhr){
             alert("Error de peticion!");

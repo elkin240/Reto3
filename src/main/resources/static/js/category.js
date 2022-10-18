@@ -17,7 +17,8 @@ function pintarCategorys(datos){
   html += "<thead>";
   html +="<tr>"
   html +="<th>Nombre</th>"
-  html +="<th>Correo</th>"
+  html +="<th>Descrpcion</th>"
+  html +="<th>Eliminar</th>"
    html +="</tr>"
   html += "</thead>";
 
@@ -26,8 +27,8 @@ function pintarCategorys(datos){
     html += "<tr>"
 
     html += "<td>"+dato.name+"</td>";
-    html += "<td>"+dato.description+"</td";
-    html += "<td><button  class='btn btn-danger' onclick='eliminarCategory("+dato.id+")'>Eliminar </button> </td";
+    html += "<td>"+dato.description+"</td>";
+       html += "<td><button  class='btn btn-danger' onclick='eliminarCategory("+dato.id+")'>Eliminar </button> </td";
     html += "</tr>"
 
   }
