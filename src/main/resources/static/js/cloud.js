@@ -1,6 +1,6 @@
 function traerCloud(){
     $.ajax({
-        url:"http://localhost:8080/api/Cloud/all",
+        url:"http://141.147.38.210:8080/api/Cloud/all",
         type:"GET",
         dataType:'json',
         success: function(respuesta, xhr){
@@ -52,7 +52,7 @@ function guardarCloud(){
     let dataToSend=JSON.stringify(datos);
    
     $.ajax({
-        url:"http://localhost:8080/api/Cloud/save",
+        url:"http://141.147.38.210:8080/api/Cloud/save",
         type:"POST",
         dataType: 'json',
         contentType : 'application/json',
@@ -74,7 +74,7 @@ function guardarCloud(){
 
 function eliminarCloud(id){
     $.ajax({
-        url:"http://localhost:8080/api/Cloud/"+id,
+        url:"http://141.147.38.210:8080/api/Cloud/"+id,
         type:"DELETE",
         success: function(respuesta){
           traerCloud();

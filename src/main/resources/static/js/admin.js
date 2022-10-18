@@ -1,6 +1,6 @@
 function traerAdmin(){
     $.ajax({
-        url:"http://localhost:8080/api/Admin/all",
+        url:"http://141.147.38.210:8080/api/Admin/all",
         type:"GET",
         dataType:'json',
         success: function(respuesta, xhr){
@@ -46,7 +46,7 @@ function guardarAdmin(){
     let dataToSend=JSON.stringify(datos);
    
     $.ajax({
-        url:"http://localhost:8080/api/Admin/save",
+        url:"http://141.147.38.210:8080/api/Admin/save",
         type:"POST",
         dataType: 'json',
         contentType : 'application/json',
@@ -67,7 +67,7 @@ function guardarAdmin(){
 
 function eliminarAdmin(idAdmin){
     $.ajax({
-        url:"http://localhost:8080/api/Admin/"+idAdmin,
+        url:"http://141.147.38.210:8080/api/Admin/"+idAdmin,
         type:"DELETE",
         success: function(respuesta){
           traerAdmin();

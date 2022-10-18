@@ -1,6 +1,6 @@
 function traerClient(){
     $.ajax({
-        url:"http://localhost:8080/api/Client/all",
+        url:"http://141.147.38.210:8080/api/Client/all",
         type:"GET",
         dataType:'json',
         success: function(respuesta, xhr){
@@ -50,7 +50,7 @@ function guardarClient(){
     let dataToSend=JSON.stringify(datos);
    
     $.ajax({
-        url:"http://localhost:8080/api/Client/save",
+        url:"http://141.147.38.210:8080/api/Client/save",
         type:"POST",
         dataType: 'json',
         contentType : 'application/json',
@@ -72,7 +72,7 @@ function guardarClient(){
 
 function eliminarClient(idClient){
     $.ajax({
-        url:"http://localhost:8080/api/Client/"+idClient,
+        url:"http://141.147.38.210:8080/api/Client/"+idClient,
         type:"DELETE",
         success: function(respuesta){
           traerClient();

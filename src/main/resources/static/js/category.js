@@ -1,6 +1,6 @@
 function traerCategory(){
     $.ajax({
-        url:"http://localhost:8080/api/Category/all",
+        url:"http://141.147.38.210:8080/api/Category/all",
         type:"GET",
         dataType:'json',
         success: function(respuesta, xhr){
@@ -45,7 +45,7 @@ function guardarCategory(){
     let dataToSend=JSON.stringify(datos);
    
     $.ajax({
-        url:"http://localhost:8080/api/Category/save",
+        url:"http://141.147.38.210:8080/api/Category/save",
         type:"POST",
         dataType: 'json',
         contentType : 'application/json',
@@ -65,7 +65,7 @@ function guardarCategory(){
 
 function eliminarCategory(id){
     $.ajax({
-        url:"http://localhost:8080/api/Category/"+id,
+        url:"http://141.147.38.210:8080/api/Category/"+id,
         type:"DELETE",
         success: function(respuesta){
             traerCategory();
